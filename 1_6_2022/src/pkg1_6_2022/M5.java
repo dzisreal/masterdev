@@ -22,7 +22,7 @@ public class M5 {
             } else {
                 float p = (a+b+c)/2;
                 float s = (float)Math.sqrt(p*(p-a)*(p-b)*(p-c));
-                System.out.println("Dien tich tam gia la: " + s);
+                System.out.println("Dien tich tam giac la: " + s);
             }
         }
     
