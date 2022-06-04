@@ -1,6 +1,6 @@
 package com.example.createrestapispringboot.exception;
 
-public class InternalServerException extends RuntimeException{
+public class InternalServerException extends Exception{
     public InternalServerException(String message){
         super(message);
     }

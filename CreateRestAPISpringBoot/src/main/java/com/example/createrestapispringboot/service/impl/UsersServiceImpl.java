@@ -53,7 +53,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void createUser(Users user) {
+    public void createUser(Users user) throws DuplicateRecordException {
         if (this.findUserById(user.getId()).isPresent()){
             throw new DuplicateRecordException("User co Id " + user.getId() + " da ton tai.");
         }
@@ -64,7 +64,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Users updateUser(int id, Users user) throws ResourceNotFoundException {
+    public Users updateUser(int id, Users user) throws ResourceNotFoundException, InternalServerException {
         if (!Objects.equals(id, user.getId())){
             throw new ResourceNotFoundException("Id khong ton tai.");
         }
@@ -77,7 +77,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void deleteUser(int id) {
+    public void deleteUser(int id) throws ResourceNotFoundException {
         if (usersRepository.findById(id).isEmpty()){
             throw new ResourceNotFoundException("User co id " + id + " khong ton tai.");
         }

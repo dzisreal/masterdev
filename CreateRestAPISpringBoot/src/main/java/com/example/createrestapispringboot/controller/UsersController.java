@@ -48,7 +48,7 @@ public class UsersController {
 
     //Get users's infor by Id RestAPI
     @GetMapping("/{id}")
-    public ResponseEntity<Users> getUsersById(@PathVariable int id){
+    public ResponseEntity<Users> getUsersById(@PathVariable int id) throws ResourceNotFoundException {
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Khong tim thay User co id: " + id));
         return ResponseEntity.ok(user);
@@ -56,7 +56,7 @@ public class UsersController {
 
     //Update users's infor by Id RestAPI
     @PutMapping("/update/{id}")
-    public  ResponseEntity<Users> updateUser(@PathVariable int id, @RequestBody Users userDetails){
+    public  ResponseEntity<Users> updateUser(@PathVariable int id, @RequestBody Users userDetails) throws ResourceNotFoundException {
         Users updateUser = usersRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User co id " + id + " khong ton tai"));
         updateUser.setEmail(userDetails.getEmail());
@@ -68,7 +68,7 @@ public class UsersController {
 
     // delete user RestAPI
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<HttpStatus> deleteUser(@PathVariable int id){
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable int id) throws ResourceNotFoundException {
 
         Users employee = usersRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User co id " + id + " khong ton tai"));
