@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UsersService {
-    Optional<Users> findUserByEmail(String email);
 
     List<Users> getAllUsers();
 

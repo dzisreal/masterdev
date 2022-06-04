@@ -7,6 +7,7 @@ import com.example.createrestapispringboot.exception.ResourceNotFoundException;
 import com.example.createrestapispringboot.model.Users;
 import com.example.createrestapispringboot.repository.UsersRepository;
 import com.example.createrestapispringboot.service.UsersService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,11 +38,6 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Optional<Users> findUserByEmail(String email) {
-        return usersRepository.findByEmail(email);
-    }
-
-    @Override
     public List<Users> getAllUsers(){
         return (List<Users>) usersRepository.findAll();
     }
@@ -56,9 +52,6 @@ public class UsersServiceImpl implements UsersService {
     public void createUser(Users user) throws DuplicateRecordException {
         if (this.findUserById(user.getId()).isPresent()){
             throw new DuplicateRecordException("User co Id " + user.getId() + " da ton tai.");
-        }
-        if (this.findUserByEmail(user.getEmail()).isPresent()){
-            throw new DuplicateRecordException("User co email " + user.getEmail() + " da ton tai.");
         }
         usersRepository.save(user);
     }
