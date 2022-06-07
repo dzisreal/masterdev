@@ -1,0 +1,22 @@
+{
+  "namespace": "src.main.java",
+  "type": "record",
+  "name": "zoo",
+  "fields": [
+    {"name": "Version", "type" : "int"},
+    {"name": "Animals", "type": {
+      "namespace": "src.main.java",
+      "type": "array",
+      "items": {
+        "type": "record",
+        "namespace": "src.main.java",
+        "name": "Animal",
+        "fields": [
+          {"name": "Name", "type": "string"},
+          {"name": "Weight", "type": "double"}
+            ]
+      }
+    }
+    }
+      ]
+}
