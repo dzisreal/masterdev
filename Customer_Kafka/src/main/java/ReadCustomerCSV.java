@@ -18,9 +18,9 @@ public class ReadCustomerCSV {
     public static void main(String[] args) {
         Properties props = new Properties();
         props.put(ProducerConfig.CLIENT_ID_CONFIG,"my-app-readcsv");
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"172.17.80.26:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
         logger.info("Start sending Customer Record");
 
