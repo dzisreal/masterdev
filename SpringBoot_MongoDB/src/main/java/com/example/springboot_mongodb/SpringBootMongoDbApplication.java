@@ -7,9 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringBootMongoDbApplication {
 
-    @Autowired
-    private BooksRepository booksRepository;
-
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMongoDbApplication.class, args);
     }
