@@ -1,0 +1,2 @@
+B1: Set config input và output file cho file WC_Runner, ở đây khi chạy thử em set input là input.txt và output là output
+B2: Sau khi chạy ta được folder output, file part-00000 lưu lại các chữ và số lần xuất hiện của chúng trong file input.txt,
