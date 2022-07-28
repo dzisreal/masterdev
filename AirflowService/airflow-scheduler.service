@@ -1,0 +1,13 @@
+[Unit]
+Description=Airflow webserver daemon
+After=network.target postgresql-10.21.service
+Wants=postgresql-10.21.service
+[Service]
+User=hoand68
+Type=simple
+ExecStart=/usr/local/bin/airflow scheduler
+Restart=on-failure
+RestartSec=5s
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
